@@ -1,0 +1,43 @@
+{% for todo in todos %}
+<div class="todo-row">
+    <input type="checkbox"
+           {% if todo.completed %}checked{% endif %}
+           hx-post="/todos/{{ todo.id }}/completed"
+           hx-trigger="change"
+           hx-target="#todo-list"
+           hx-swap="innerHTML">
+    <input type="text"
+           name="title"
+           value="{{ todo.title }}"
+           hx-post="/todos/{{ todo.id }}/title"
+           hx-trigger="blur"
+           hx-target="#todo-list"
+           hx-swap="innerHTML"
+           hx-include="this"
+           {% if todo.completed %}style="text-decoration:line-through;color:gray"{% endif %}>
+    <input type="datetime-local"
+           name="due_date"
+           value="{{ todo.due_date[:16] if todo.due_date else '' }}"
+           hx-post="/todos/{{ todo.id }}/due_date"
+           hx-trigger="change"
+           hx-target="#todo-list"
+           hx-swap="innerHTML"
+           hx-include="this">
+    {% if todo.due_date %}
+    <button class="x-btn"
+            type="button"
+            hx-delete="/todos/{{ todo.id }}/due_date"
+            hx-target="#todo-list"
+            hx-swap="innerHTML">X</button>
+    {% endif %}
+</div>
+{% endfor %}
+<div class="todo-row new-row">
+    <form hx-post="/todos"
+          hx-target="#todo-list"
+          hx-swap="innerHTML"
+          style="display:flex;flex:1;gap:8px">
+        <input type="text" name="title" placeholder="New todo...">
+        <button type="submit" style="display:none">Add</button>
+    </form>
+</div>

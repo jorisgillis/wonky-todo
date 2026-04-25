@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Wonky Todo</title>
+    <script src="https://unpkg.com/htmx.org@2.0.4" crossorigin="anonymous"></script>
+    <style>
+        body { font-family: monospace; max-width: 800px; margin: 40px auto; padding: 0 20px; }
+        .todo-row { display: flex; align-items: center; gap: 8px; margin: 6px 0; }
+        input[type=text] { flex: 1; padding: 4px; font-family: monospace; }
+        input[type=datetime-local] { font-family: monospace; }
+        .x-btn { cursor: pointer; color: red; border: none; background: none; font-weight: bold; }
+        .new-row input[type=text] { flex: 1; padding: 4px; font-family: monospace; }
+    </style>
+</head>
+<body>
+    <h1>Todo List</h1>
+    <div id="todo-list">
+        {% include "items.html" %}
+    </div>
+</body>
+</html>

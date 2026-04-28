@@ -17,7 +17,7 @@
            {% if todo.completed %}style="text-decoration:line-through;color:gray"{% endif %}>
     <input type="datetime-local"
            name="due_date"
-           value="{{ todo.due_date[:16] if todo.due_date else '' }}"
+           value="{{ todo.due_date | datetime_local }}"
            hx-post="/todos/{{ todo.id }}/due_date"
            hx-trigger="change"
            hx-target="#todo-list"
@@ -30,6 +30,12 @@
             hx-target="#todo-list"
             hx-swap="innerHTML">X</button>
     {% endif %}
+    <button class="x-btn"
+            type="button"
+            hx-delete="/todos/{{ todo.id }}"
+            hx-target="#todo-list"
+            hx-swap="innerHTML"
+            title="Delete todo">&#x1F5D1;</button>
 </div>
 {% endfor %}
 <div class="todo-row new-row">
@@ -38,6 +44,6 @@
           hx-swap="innerHTML"
           style="display:flex;flex:1;gap:8px">
         <input type="text" name="title" placeholder="New todo...">
-        <button type="submit" style="display:none">Add</button>
+        <button type="submit">Add</button>
     </form>
 </div>

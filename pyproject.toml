@@ -1,13 +1,16 @@
 [project]
 name = "wonky-todo"
 version = "0.1.0"
-description = "Add your description here"
+description = "A small HTMX-powered to-do list built with FastAPI and SQLite"
 readme = "README.md"
 requires-python = ">=3.13"
 dependencies = [
     "fastapi[all]>=0.136.1",
     "uvicorn>=0.46.0",
 ]
+
+[tool.pytest.ini_options]
+pythonpath = ["."]
 
 [dependency-groups]
 dev = [

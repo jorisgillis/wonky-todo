@@ -8,7 +8,16 @@
       "mcp__plugin_playwright_playwright__browser_type",
       "mcp__plugin_playwright_playwright__browser_click",
       "mcp__plugin_playwright_playwright__browser_fill_form",
-      "mcp__plugin_playwright_playwright__browser_press_key"
+      "mcp__plugin_playwright_playwright__browser_press_key",
+      "Bash(sort find *)",
+      "Bash(python -m ruff check main.py)",
+      "Bash(python -m mypy main.py)",
+      "Skill(code-review:code-review)",
+      "Bash(python -m pytest tests/ -v)",
+      "Bash(python3 *)",
+      "Bash(curl -sL \"https://unpkg.com/htmx.org@2.0.4/dist/htmx.min.js\")",
+      "Bash(openssl dgst *)",
+      "Bash(openssl base64 *)"
     ]
   }
 }

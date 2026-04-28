@@ -7,6 +7,10 @@ A deliberately broken Python to-do list application.
 > The code intentionally violates style guides and best practices.
 > Do not use it as a reference for how to write Python.
 
+An improvement of the code is included in the branch `improved`. The
+code in that branch was obtained by running the [`code-reviewer`
+agent](https://github.com/jorisgillis/claude-agents).
+
 ---
 
 ## Purpose
